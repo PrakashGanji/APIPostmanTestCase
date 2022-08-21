@@ -1,0 +1,17 @@
+Energy Australia API Test Output test suite
+
+1. Verify Status code  
+2. Verify Schema 
+3. Verify any specific text includes in the reponse
+4. Verify Headers, response time and cookies
+5. Verify Response text matches request text
+6. Verify with invalid request - 404 
+7. Verify Name and its properties
+8. Verify Any Record label with null value
+9. Verify any bandName with null value
+10.Verify text 
+11.Verify bandName Repeat or duplicates
+12.Verify recordLable Repeat or duplicates 
+
+13.Throttling, too many requests - when send request second time  
+the number of requests exceeding the rate. Need to check with dev

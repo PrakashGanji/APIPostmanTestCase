@@ -1,0 +1,971 @@
+{
+	"info": {
+		"_postman_id": "c06af99c-1b3d-47e5-bb1e-86ab63d753c8",
+		"name": "EnergyAustraliaAPITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20220793"
+	},
+	"item": [
+		{
+			"name": "TS_verifyStatusCode",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Status Code Assertions\", function()\r",
+							"{   pm.response.to.have.status(200); //   checking 200 Ok \r",
+							"   \r",
+							"     \r",
+							"  });\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"name1\", \"Trainerella\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_verifySchema",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const schema = {\r",
+							"  \"type\": \"array\",\r",
+							"  \"items\": [\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"name\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"bands\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": [\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            }\r",
+							"          ]\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"name\",\r",
+							"        \"bands\"\r",
+							"      ]\r",
+							"    },\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"name\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"bands\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": [\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            }\r",
+							"          ]\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"name\",\r",
+							"        \"bands\"\r",
+							"      ]\r",
+							"    },\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"name\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"bands\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": [\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            }\r",
+							"          ]\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"name\",\r",
+							"        \"bands\"\r",
+							"      ]\r",
+							"    },\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"bands\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": [\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            }\r",
+							"          ]\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"bands\"\r",
+							"      ]\r",
+							"    },\r",
+							"    {\r",
+							"      \"type\": \"object\",\r",
+							"      \"properties\": {\r",
+							"        \"name\": {\r",
+							"          \"type\": \"string\"\r",
+							"        },\r",
+							"        \"bands\": {\r",
+							"          \"type\": \"array\",\r",
+							"          \"items\": [\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            },\r",
+							"            {\r",
+							"              \"type\": \"object\",\r",
+							"              \"properties\": {\r",
+							"                \"name\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                },\r",
+							"                \"recordLabel\": {\r",
+							"                  \"type\": \"string\"\r",
+							"                }\r",
+							"              },\r",
+							"              \"required\": [\r",
+							"                \"name\",\r",
+							"                \"recordLabel\"\r",
+							"              ]\r",
+							"            }\r",
+							"          ]\r",
+							"        }\r",
+							"      },\r",
+							"      \"required\": [\r",
+							"        \"name\",\r",
+							"        \"bands\"\r",
+							"      ]\r",
+							"    }\r",
+							"  ]\r",
+							"}      \r",
+							"// compare actual vs expected schema \r",
+							"    pm.test(\"Json response Schema Validation\", function(){\r",
+							"        pm.response.to.have.status(200);\r",
+							"        pm.response.to.have.jsonSchema(schema); \r",
+							"    })\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"name1\", \"Trainerella\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_verifyTextIncludesinResponse",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Specific Text includes in response\", function()\r",
+							"{   \r",
+							"     pm.expect(pm.response.text()).to.include(\"LOL-palooza\"); \r",
+							"      pm.expect(pm.response.text()).to.include(\"Fourth Woman Records\"); \r",
+							"       pm.expect(pm.response.text()).to.include(\"Winter Primates\"); \r",
+							"     \r",
+							"    \r",
+							"  \r",
+							"  });\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"name1\", \"Small Night In\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_verifyHeaderResponseTimeCookies",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Headers Cookies responsetime validations\", function(){\r",
+							"    pm.response.to.have.header(\"Content-Type\"); // checking header key and Value\r",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.eql(\"application/json; charset=utf-8\");\r",
+							"    pm.expect (pm.response.responseTime).to.be.below(1000); // checking response time\r",
+							"    pm.expect.to.have.cookie(\"AWSALB\"); // checking cookie key\r",
+							"})\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"name1\", \"Trainerella\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_verifyResponseTextMatchesRequestText",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Verify Response Text Matches with Request\", function()\r",
+							"{   \r",
+							"   \r",
+							"      pm.expect(jsonData[1].name).to.eql(pm.collectionVariables.get(\"name1\")); \r",
+							"  \r",
+							"  });\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"name1\", \"Small Night In\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_Invalid Request 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status Code Assertions\", function()\r",
+							"{   pm.response.to.have.status(404); //   checking 200 Ok \r",
+							"   \r",
+							"     \r",
+							"  });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals/test",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_verify Name and its properties",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"   const jsonData = pm.response.json();\r",
+							" console.log(jsonData[0].name);\r",
+							"//console.log(jsonData[0].bands.name);\r",
+							"\r",
+							"\r",
+							" pm.test (\"Name Verfication\", function() {\r",
+							"    \r",
+							"    const nameObject =  jsonData.find(m=>m.name=== \"LOL-palooza\");\r",
+							"    pm.expect(nameObject).to.be.an(\"object\", \"LOL-palooza not found\")\r",
+							"\r",
+							"      });\r",
+							"\r",
+							"pm.test (\"Properties Verfication\", function() {   // properties verification\r",
+							"    \r",
+							"    const nameObject =  jsonData.find(m=>m.name=== \"LOL-palooza\");\r",
+							"    pm.expect(nameObject).to.have.all.keys('name', 'bands');\r",
+							"\r",
+							"      });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_VerifyAnyRecordLabelisNull",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"   const jsonData = pm.response.json();\r",
+							"\r",
+							" pm.test (\"Verify any bands Record Label is null \", function() {\r",
+							"    \r",
+							"           \r",
+							"       for (let k =0; k<5; k++) { \r",
+							"            \r",
+							"       for (let i=0; i<jsonData[k].bands.length; i++)\r",
+							"       {\r",
+							"           //console.log (jsonData[k].bands[i].recordLabel) // To print all the record labels\r",
+							"           if (jsonData[k].bands[i].recordLabel == 0)  {  // to check any label with null value\r",
+							"           console.log (\"recordLable is nil\");\r",
+							"        } \r",
+							"\r",
+							"       }\r",
+							"\r",
+							"       \r",
+							"        }\r",
+							"\r",
+							"       \r",
+							"      });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_VerifyAnybandsNamelisNull",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"   const jsonData = pm.response.json();\r",
+							"\r",
+							" pm.test (\"Verify any bands name is Null\", function() {\r",
+							"    \r",
+							"           \r",
+							"       for (let k =0; k<5; k++) { \r",
+							"            \r",
+							"       for (let i=0; i<jsonData[k].bands.length; i++)\r",
+							"       {\r",
+							"          // console.log (jsonData[k].bands[i].name); // to print all the bands names \r",
+							"           if (jsonData[k].bands[i].name == null)  { // to verify any name is null\r",
+							"           console.log (\"bands name is nil\");\r",
+							"        } \r",
+							"\r",
+							"       }\r",
+							"\r",
+							"       \r",
+							"        }\r",
+							"\r",
+							"       \r",
+							"      });\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_verifyTextifStatic",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"console.log(jsonData[0].name);\r",
+							"console.log(jsonData[1].name);\r",
+							"\r",
+							"pm.test (\"Verify text is static\", function() {\r",
+							"pm.expect(jsonData[0].name).to.eql(\"Trainerella\"); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"name1\", \"Trainerella\")"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals?name=Trainerella",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Trainerella"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_VerifybandNAMERepeating",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							" \r",
+							"   pm.test (\"Verify bandName Repeat / Duplicates\", function() {\r",
+							"  var match = [];\r",
+							"  var duplicates = [];\r",
+							"  // find duplicates\r",
+							"  jsonData.forEach(function(item) {\r",
+							"        item.bands.forEach(function(band) {\r",
+							"            if (match[band.name]) {\r",
+							"                duplicates.push(band.name);\r",
+							"            } else {\r",
+							"                match[band.name]=true;\r",
+							"                //console.log (duplicates);\r",
+							"            }\r",
+							"\r",
+							"                 });\r",
+							"            \r",
+							"                  });\r",
+							"\r",
+							"                  // to find all duplicates\r",
+							"          duplicates.forEach(function(duplicate) {\r",
+							"              console.log(duplicate)\r",
+							"          });\r",
+							"  });\r",
+							"\r",
+							"\r",
+							"\r",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TS_VerifyRecordLabelRepeating",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();\r",
+							"\r",
+							"   pm.test (\"Verify recordLabel Repeat / Duplicates\", function() {\r",
+							"  var match = [];\r",
+							"  var duplicates = [];\r",
+							"  // find duplicates\r",
+							"  jsonData.forEach(function(item) {\r",
+							"        item.bands.forEach(function(band) {\r",
+							"            if (match[band.recordLabel]) {\r",
+							"                duplicates.push(band.recordLabel);\r",
+							"            } else {\r",
+							"                match[band.recordLabel]=true;\r",
+							"                //console.log (duplicates);\r",
+							"            }\r",
+							"\r",
+							"                 });\r",
+							"            \r",
+							"                  });\r",
+							"\r",
+							"                  // to find all duplicates\r",
+							"          duplicates.forEach(function(duplicate) {\r",
+							"              console.log(duplicate)\r",
+							"          });\r",
+							"  });\r",
+							"\r",
+							"\r",
+							"\r",
+							" "
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/festivals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"festivals"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "name1",
+			"value": ""
+		}
+	]
+}
